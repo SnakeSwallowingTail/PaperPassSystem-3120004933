@@ -27,7 +27,8 @@
 
 ## 开发工具
 
-本项目基于Python3.10环境开发，须安装第三方库`jieba`以及`gensim`
+- IDE：JetBrain Pycharm 2022.1.1
+- 所用语言：Python 3.10
 
 ### 所用接口
 
