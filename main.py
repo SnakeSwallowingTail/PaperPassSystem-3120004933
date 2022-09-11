@@ -15,7 +15,16 @@ def get_content(path):
     return str
 
 
-
+# jieba分词并过滤标点符号等
+def filter(str):
+    str = jieba.lcut(str)  # 直接返回list类型
+    result = []
+    for tags in str:
+        if re.match(u"[a-zA-Z0-9\u4e00-\u9fa5]", tags):  # 只将tags中的英文、数字、汉字保存进result中
+            result.append(tags)
+        else:
+            pass
+    return result
 
 
 if __name__ == '__main__':
