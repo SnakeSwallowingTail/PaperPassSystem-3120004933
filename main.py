@@ -37,14 +37,15 @@ def calc_similarity(text1, text2):
     similarity = gensim.similarities.Similarity(None, corpus=corpus, num_features=len(dictionary))  # 参数为：碎片文件名路径(不管,在缓存中随机读取）、词频、字典大小
     test_corpus = dictionary.doc2bow(text1)  # 文章一中所有词在词表中的出现频率
     cosine_sim = similarity[test_corpus][1]  # 对文章一进行相似度查询
+    cosine_sim = float("%.6f" % cosine_sim)
     return cosine_sim
 
 
 if __name__ == '__main__':
     # 从命令行参数获取文件路径r
-    path_original = sys.argv[1]
-    path_fixed = sys.argv[2]
-    path_answer = sys.argv[3]
+    path_original = 'D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig.txt'
+    path_fixed = 'D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig_0.8_add.txt'
+    path_answer = 'D:\Courses\SE\PaperPassSystem-3120004933/ans.txt'
     str_ori = get_content(path_original)
     str_fix = get_content(path_fixed)
     text_ori = filter(str_ori)
