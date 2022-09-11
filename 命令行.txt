@@ -1,0 +1,1 @@
+python D:\Courses\SE\PaperPassSystem-3120004933\main.py D:\Courses\SE\PaperPassSystem-3120004933\测试文本\orig.txt D:\Courses\SE\PaperPassSystem-3120004933\测试文本\orig_0.8_add.txt D:\Courses\SE\PaperPassSystem-3120004933\ans.txt
