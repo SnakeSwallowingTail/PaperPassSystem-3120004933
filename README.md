@@ -49,3 +49,7 @@ gensim.dictionary.doc2bow
 doc2bow是gensim中封装的一个方法，主要用于实现bow模型
 
 > bag-of-words model (BoW model) 最早出现在自然语言处理(Natural Language Processing）和信息检索（Information Retrieval）领域.。该模型忽略掉文本的语法和语序等要素，将其仅仅看作是若干个词汇的集合，文档中每个单词的出现都是独立的。
+
+sys.argv
+---
+用于存储命令行参数，以实现程序内对命令行参数的调用
