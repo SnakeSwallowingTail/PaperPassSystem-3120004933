@@ -47,9 +47,9 @@ if __name__ == '__main__':
     path_answer = sys.argv[3]
     str_ori = get_content(path_original)
     str_fix = get_content(path_fixed)
-    text1 = filter(str_ori)
-    text2 = filter(str_fix)
-    similarity = calc_similarity(text1, text2)
+    text_ori = filter(str_ori)
+    text_fix = filter(str_fix)
+    similarity = calc_similarity(text_ori, text_fix)
     f = open(path_answer, 'w')
     f.write('文章相似度:{0:.4f}'.format(similarity))
     f.close()
