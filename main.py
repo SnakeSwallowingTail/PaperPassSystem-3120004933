@@ -51,8 +51,8 @@ if __name__ == '__main__':
     """
     # 测试时直接采用绝对路径，不使用命令行传参
     # 正式运行时注释以下三行并将上方注释取消
-    path_original = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本/orig.txt"
-    path_fixed = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本/orig_0.8_add.txt"
+    path_original = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本-Beta/orig_d.txt"
+    path_fixed = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本-Beta/orig_d_dis.txt"
     path_answer = "D:/Courses/SE/PaperPassSystem-3120004933/ans.txt"
 
     # 查询文件是否存在
@@ -76,14 +76,14 @@ if __name__ == '__main__':
         print("[-]抄袭版文章为空文件，请检查文件内容")
         exit(0)
     # 终端显示文本内容
-    print("[+]原版文章内容:{0}".format(str_ori))
-    print("[+]抄袭版文章内容:{0}".format(str_fix))
+    print("[+]原版文章内容:\n{0}".format(str_ori))
+    print("[+]抄袭版文章内容:\n{0}".format(str_fix))
     # 进行分词
     text_ori = char_filter(str_ori)
     text_fix = char_filter(str_fix)
     # 终端显示分词结果
-    print("[+]原版文章分词结果:{0}".format(text_ori))
-    print("[+]抄袭版文章分词结果:{0}".format(text_fix))
+    print("[+]原版文章分词结果:{0}\n".format(text_ori))
+    print("[+]抄袭版文章分词结果:{0}\n".format(text_fix))
     # 计算相似度
     similarity = calc_similarity(text_ori, text_fix)
     # 存储相似度结果
