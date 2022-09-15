@@ -29,6 +29,7 @@
 
 - IDE：JetBrain Pycharm 2022.1.1
 - 所用语言：Python 3.10
+- 第三方库：`jieba`、`gensim`
 
 ### 所用接口
 
