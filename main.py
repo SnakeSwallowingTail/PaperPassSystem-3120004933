@@ -24,8 +24,6 @@ def char_filter(str):
     for tags in str:
         if re.match(u'[a-zA-Z\d\u4e00-\u9fa5]', tags):  # 只将tags中的英文、数字、汉字保存进result中
             result.append(tags)
-        else:
-            pass
     return result
 
 
@@ -35,8 +33,7 @@ def calc_similarity(text1, text2):
     dictionary = gensim.corpora.Dictionary(texts)  # 根据两篇文章的所有内容构建词表
     corpus = [dictionary.doc2bow(text) for text in texts]  # 记录词表中所有词的频率
     similarities = gensim.similarities.Similarity(None, corpus=corpus, num_features=len(dictionary))  # 参数为：碎片文件名路径(不管,在缓存中随机读取）、词频、字典大小
-    test_corpus = dictionary.doc2bow(text1)  # 文章一中所有词在词表中的出现频率
-    cosine_sim = similarities[test_corpus][1]  # 对文章一进行相似度查询
+    cosine_sim = similarities[corpus[0]][1]  # 对文章一进行相似度查询
     cosine_sim = float("%.6f" % cosine_sim)
     return cosine_sim
 
@@ -54,9 +51,9 @@ if __name__ == '__main__':
     """
     # 测试时直接采用绝对路径，不使用命令行传参
     # 正式运行时注释以下三行并将上方注释取消
-    path_original = "D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig.txt"
-    path_fixed = "D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig_0.8_add.txt"
-    path_answer = "D:\Courses\SE\PaperPassSystem-3120004933/ans.txt"
+    path_original = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本/orig.txt"
+    path_fixed = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本/orig_0.8_add.txt"
+    path_answer = "D:/Courses/SE/PaperPassSystem-3120004933/ans.txt"
 
     # 查询文件是否存在
     if not os.path.exists(path_original):
@@ -91,8 +88,9 @@ if __name__ == '__main__':
     similarity = calc_similarity(text_ori, text_fix)
     # 存储相似度结果
     fout = open(path_answer, 'w')
-    fout.write('文章相似度:{0:.6f}'.format(similarity))
+    fout.write("文章相似度:{0:.6f}".format(similarity))
     fout.close()
     # 终端显示运行结束
+    print("文章相似度:{0:.6f}".format(similarity))
     print("[+]计算完成，结果已保存至{0}".format(path_answer))
     print("[+]运行结束")
