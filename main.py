@@ -52,9 +52,11 @@ if __name__ == '__main__':
     path_fixed = sys.argv[2]
     path_answer = sys.argv[3]
     """
+    # 测试时直接采用绝对路径，不使用命令行传参
     path_original = "D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig.txt"
     path_fixed = "D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig_0.8_add.txt"
     path_answer = "D:\Courses\SE\PaperPassSystem-3120004933/ans.txt"
+
     # 查询文件是否存在
     if not os.path.exists(path_original):
         print("[-]原版文章不存在，请检查文件路径！")
