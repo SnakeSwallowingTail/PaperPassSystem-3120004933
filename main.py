@@ -53,6 +53,7 @@ if __name__ == '__main__':
     path_answer = sys.argv[3]
     """
     # 测试时直接采用绝对路径，不使用命令行传参
+    # 正式运行时注释以下三行并将上方注释取消
     path_original = "D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig.txt"
     path_fixed = "D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig_0.8_add.txt"
     path_answer = "D:\Courses\SE\PaperPassSystem-3120004933/ans.txt"
