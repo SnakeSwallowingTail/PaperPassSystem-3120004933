@@ -1,6 +1,6 @@
+import os.path
 import re
 import sys
-
 import gensim.corpora
 import jieba
 
@@ -42,15 +42,49 @@ def calc_similarity(text1, text2):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) < 4:  # 判断命令行参数是否出错
+        print("[-]参数数目错误，请检查参数")
+        print("[-]python main.py绝对路径 原版文章绝对路径 抄袭版文章绝对路径 结果保存绝对路径")
+        exit(0)
     # 从命令行参数获取文件路径r
-    path_original = 'D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig.txt'
-    path_fixed = 'D:\Courses\SE\PaperPassSystem-3120004933\测试文本/orig_0.8_add.txt'
-    path_answer = 'D:\Courses\SE\PaperPassSystem-3120004933/ans.txt'
+    path_original = sys.argv[1]
+    path_fixed = sys.argv[2]
+    path_answer = sys.argv[3]
+    # 查询文件是否存在
+    if not os.path.exists(path_original):
+        print("[-]原版文章不存在，请检查文件路径！")
+        exit(0)
+    if not os.path.exists(path_fixed):
+        print("[-]抄袭版文章不存在，请检查文件路径！")
+        exit(0)
+    # 终端显示文件路径
+    print("[+]原版文章的绝对路径:{0}".format(path_original))
+    print("[+]抄袭版文章的绝对路径:{0}".format(path_fixed))
+    # 读取文本
     str_ori = get_content(path_original)
     str_fix = get_content(path_fixed)
+    # 检查是否存在空文本
+    if len(str_ori) == 0:
+        print("[-]原版文章为空文件，请检查文件内容")
+        exit(0)
+    if len(str_fix) == 0:
+        print("[-]抄袭版文章为空文件，请检查文件内容")
+        exit(0)
+    # 终端显示文本内容
+    print("[+]原版文章内容:{0}".format(str_ori))
+    print("[+]抄袭版文章内容:{0}".format(str_fix))
+    # 进行分词
     text_ori = char_filter(str_ori)
     text_fix = char_filter(str_fix)
+    # 终端显示分词结果
+    print("[+]原版文章分词结果:{0}".format(text_ori))
+    print("[+]抄袭版文章分词结果:{0}".format(text_fix))
+    # 计算相似度
     similarity = calc_similarity(text_ori, text_fix)
+    # 存储相似度结果
     fout = open(path_answer, 'w')
     fout.write('文章相似度:{0:.6f}'.format(similarity))
     fout.close()
+    # 终端显示运行结束
+    print("[+]计算完成，结果已保存至{0}".format(path_answer))
+    print("[+]运行结束")
