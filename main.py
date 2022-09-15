@@ -39,7 +39,7 @@ def calc_similarity(text1, text2):
 
 
 if __name__ == '__main__':
-    """
+
     if len(sys.argv) < 4:  # 判断命令行参数是否出错
         print("[-]参数数目错误，请检查参数")
         print("[-]python main.py绝对路径 原版文章绝对路径 抄袭版文章绝对路径 结果保存绝对路径")
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     path_original = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本-Beta/orig_d.txt"
     path_fixed = "D:/Courses/SE/PaperPassSystem-3120004933/测试文本-Beta/orig_d_dis.txt"
     path_answer = "D:/Courses/SE/PaperPassSystem-3120004933/ans.txt"
-
+    """
     # 查询文件是否存在
     if not os.path.exists(path_original):
         print("[-]原版文章不存在，请检查文件路径！")
